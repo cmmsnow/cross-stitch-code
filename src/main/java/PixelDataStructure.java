@@ -1,7 +1,7 @@
 import java.lang.reflect.Array;
 
 /**
- * holds multidimensional array? (one element for every individual pixel)
+ * GOING TO REWRITE/NOT USE ARRAY. Will use hashset or something?
  *
  * constructor - eventually accepts photo source as param?
  */
