@@ -1,0 +1,40 @@
+
+/**
+ * need this class to hold a list or array that is just full of colors (in order from L to R, T to B)
+ */
+
+public class ColorArray {
+    private Integer numOfRows;
+    private Integer numOfColumns;
+    private String[] colorAr;
+
+    public ColorArray(Integer rows, Integer columns) {
+        this.numOfRows = rows;
+        this.numOfColumns = columns;
+        this.colorAr = new String[rows*columns];
+    }
+
+    public String[] getColorArray() {
+        return colorAr;
+    }
+
+    public void setColorArray(String[] newPattern) {
+        this.colorAr = newPattern;
+    }
+
+    public Integer getNumOfRows() {
+        return numOfRows;
+    }
+
+    public void setNumOfRows(Integer numOfRows) {
+        this.numOfRows = numOfRows;
+    }
+
+    public Integer getNumOfColumns() {
+        return numOfColumns;
+    }
+
+    public void setNumOfColumns(Integer numOfColumns) {
+        this.numOfColumns = numOfColumns;
+    }
+}
