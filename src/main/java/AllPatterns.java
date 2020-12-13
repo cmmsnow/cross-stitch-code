@@ -9,7 +9,7 @@ public class AllPatterns {
     private List<Pattern> allPatterns;
 
     public AllPatterns(){
-        this.allPatterns = new ArrayList<Pattern>();
+        this.allPatterns = new ArrayList<>();
     }
 
     public void addPattern(Pattern pattern){
@@ -21,7 +21,9 @@ public class AllPatterns {
     }
 
     public static void main(String[] args){
-        //1) create color array
+        AllPatterns allPatterns = new AllPatterns();
+
+        //1) create color array -- ideally swap to using database colors
         String red = "DMC_606";
         String orange = "DMC_741";
         String lemon = "DMC_307";
@@ -58,10 +60,10 @@ public class AllPatterns {
         colorArrayDumpster.setColorArray(colors);
 
         //2) create pattern
-        Pattern dumpsterFire = new Pattern(colorArrayDumpster); //still need to make conversion to hashmap automatic.
+        Pattern dumpsterFire = new Pattern(colorArrayDumpster);
 
         //3) add pattern to list
-
+        allPatterns.addPattern(dumpsterFire);
 
         //4) print pattern
         dumpsterFire.printMe();

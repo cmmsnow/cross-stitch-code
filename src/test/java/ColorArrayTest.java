@@ -1,11 +1,7 @@
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import java.util.Optional;
 
-/**
- * unhappy with optionals at getRows and getColumns
- */
 
 public class ColorArrayTest {
     String[] pattern;
@@ -19,8 +15,29 @@ public class ColorArrayTest {
     }
 
     @Test
-    public void constructorTest(){
+    public void constructorTest1(){
         Assert.assertNotNull(blueRed);
+    }
+
+    @Test
+    public void constructorTest2(){
+        Integer expected = 6;
+        Integer actual = pattern.length;
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void constructorTest3(){
+        String expected = "blue";
+        String actual = pattern[0];
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void constructorTest4(){
+        String expected = "red";
+        String actual = pattern[5];
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -30,15 +47,10 @@ public class ColorArrayTest {
     }
 
     @Test
-    public void setColorListTest(){}
-
-    @Test
-    public void addAllTest(){}
-
-    @Test
     public void getRowsTest(){
+        Integer expected = 3;
         Integer actual = blueRed.getNumOfRows();
-        //Assert.assertEquals(3, actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -53,8 +65,9 @@ public class ColorArrayTest {
 
     @Test
     public void getColumnsTest(){
+        Integer expected = 2;
         Integer actual = blueRed.getNumOfColumns();
-        //Assert.assertEquals(2, actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -65,5 +78,16 @@ public class ColorArrayTest {
         Assert.assertEquals(given, actual);
 
         blueRed.setNumOfColumns(2);
+    }
+
+    @Test
+    public void getElementAtITest(){
+        String[] pattern2 = new String[] {null, "red", "blue", null, "blue", "red"};
+        ColorArray withNulls = new ColorArray(3, 2);
+        withNulls.setColorArray(pattern2);
+
+        String expected = "[empty]";
+        String actual = withNulls.getElementAtI(0).orElse("[empty]");
+        Assert.assertEquals(expected, actual);
     }
 }

@@ -1,6 +1,7 @@
+import java.util.Optional;
 
 /**
- * need this class to hold a list or array that is just full of colors (in order from L to R, T to B)
+ * this class holds an array of all the colors in picture (in order from L to R, T to B)
  */
 
 public class ColorArray {
@@ -36,5 +37,9 @@ public class ColorArray {
 
     public void setNumOfColumns(Integer numOfColumns) {
         this.numOfColumns = numOfColumns;
+    }
+
+    public Optional<String> getElementAtI(Integer i){
+        return Optional.ofNullable(colorAr[i]);
     }
 }

@@ -1,10 +1,7 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * need this class to take a colorList and put it in hashmap with locationKey
- *
- * MUST REMEMBER TO HANDLE OPTIONALS WHEN CREATING FROM COLORARRAY!
  */
 
 public class Pattern {
@@ -12,16 +9,13 @@ public class Pattern {
     private String locationKey;
     private Integer numOfRows;
     private Integer numOfColumns;
-    private String colorNumber;
-    //private ENUM
+    String[] colorAr;
 
     public Pattern(ColorArray colorArray) {
         this.numOfRows = colorArray.getNumOfRows();
         this.numOfColumns = colorArray.getNumOfColumns();
-        this.crossStitchData = new HashMap<>();
-
-        //call addAll() here to fill hashmap
-
+        colorAr = colorArray.getColorArray();
+        this.crossStitchData = addAllToMap(createLocationKeys(numOfRows, numOfColumns), colorAr);
     }
 
     public Map<String, String> getCrossStitchMap(){return crossStitchData;}
@@ -42,33 +36,57 @@ public class Pattern {
         this.numOfColumns = columns;
     }
 
-    public void addSquare(Integer rowNum, Integer columnNum, String colorNum){ //should this be "changeSquare"?
-        // Color color = new Color(colorNum); - do i even want to create an object?
-        locationKey = rowNum + "x" + columnNum;
+    public void changeSquare(Integer rowNum, Integer columnNum, String colorNum){
+        // Color color = new Color(colorNum);
+        locationKey = "R" + rowNum + "C" + columnNum;
         crossStitchData.put(locationKey, colorNum);
     }
 
-    public void addAll(ColorArray colors){
-        //adds value for every single square
-        for (int i=1; i<=numOfRows; i++){ //create all the location keys & add to hashmap with color
-            for (int j=1; j<=numOfColumns; j++){
-                //REMEMBER TO USE OPTIONALS
+    //creates all the location keys
+    public ArrayList<String> createLocationKeys(Integer howManyRows, Integer howManyColumns){
+        ArrayList<String> keyList = new ArrayList();
+        for (int i=1; i<=howManyRows; i++){
+            for (int j=1; j<=howManyColumns; j++){
+                locationKey = "R" + i + "C" + j;
+                keyList.add(locationKey);
+            }
+        }
+        return keyList;
+    }
+
+    public Optional<String> getElementAtI(Integer i){
+        return Optional.ofNullable(colorAr[i]);
+    }
+
+    //creates hashmap and adds each key/value pair for whole pattern
+    public HashMap<String, String> addAllToMap(ArrayList<String> keys, String[] colors){
+        HashMap<String, String> thePattern = new HashMap<>();
+        for (int i=0; i<keys.size(); i++){
+            thePattern.put(keys.get(i), getElementAtI(i).orElse("[empty]"));
+        }
+        return thePattern;
+    }
+
+    //returns number of keys with this colorValue
+    public Integer getTotalOfColor(String colorName){
+        Integer numOfOccurencesOfColor = 0;
+        for (String k : crossStitchData.keySet()){
+            if (crossStitchData.get(k).equalsIgnoreCase(colorName)) numOfOccurencesOfColor++;
+        }
+        return numOfOccurencesOfColor;
+    }
+
+    //changes all values matching colorNum to newColorNum
+    public void changeAll(String colorNum, String newColorNum){
+        for (String k : crossStitchData.keySet()){
+            if (crossStitchData.get(k).equalsIgnoreCase(colorNum)){
+                crossStitchData.put(k, newColorNum);
             }
         }
     }
 
-    public Integer getTotalOfColor(String colorNum){
-        Integer numOfOccurencesOfColor = 0; //counter
-        //check all location keys' colorValue
-        return numOfOccurencesOfColor; //number of keys with this colorValue
-    }
-
-    public void changeAll(String colorNum, String newColorNum){
-        //changes all values of colorNum to newColorNum
-    }
-
     public String getSquareColor(Integer rowNum, Integer columnNum){
-        locationKey = columnNum + "x" + rowNum;
+        locationKey = "R" + rowNum + "C" + columnNum;
         return crossStitchData.get(locationKey);
     }
 
