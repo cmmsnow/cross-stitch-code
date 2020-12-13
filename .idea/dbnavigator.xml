@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="bbf37b41-66d8-4e47-a73f-4e71079198fd">
-        <schema name="DMCthread" object-types="column, table" />
+        <schema name="DMCthread" object-types="column, function, table" />
       </connection>
     </loaded-nodes>
   </component>
