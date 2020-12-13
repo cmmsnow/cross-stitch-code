@@ -2,7 +2,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
- * need this class to hold a list or array that is just full of colors
+ * need this class to hold a list or array that is just full of colors (in order from L to R, T to B)
  */
 
 public class ColorList {
@@ -16,16 +16,32 @@ public class ColorList {
         this.colorList = new ArrayList<>();
     }
 
-    public ArrayList<String> getPattern() {
+    public ArrayList<String> getColorList() {
         return colorList;
     }
 
-    public void setPattern(ArrayList<String> newPattern) {
+    public void setColorList(ArrayList<String> newPattern) {
         this.colorList = newPattern;
     }
 
     public void addAll(ArrayList<String> newPattern){
         colorList.clear();
         colorList.addAll(newPattern);
+    }
+
+    public Integer getNumOfRows() {
+        return numOfRows;
+    }
+
+    public void setNumOfRows(Integer numOfRows) {
+        this.numOfRows = numOfRows;
+    }
+
+    public Integer getNumOfColumns() {
+        return numOfColumns;
+    }
+
+    public void setNumOfColumns(Integer numOfColumns) {
+        this.numOfColumns = numOfColumns;
     }
 }
