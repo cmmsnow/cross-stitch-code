@@ -16,6 +16,12 @@ public class ColorList {
         this.colorList = new ArrayList<>();
     }
 
+    public ColorList(Integer rows, Integer columns) {
+        this.numOfRows = rows;
+        this.numOfColumns = columns;
+        this.colorList = new ArrayList<>();
+    }
+
     public ArrayList<String> getColorList() {
         return colorList;
     }
