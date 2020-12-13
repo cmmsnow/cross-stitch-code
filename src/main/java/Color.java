@@ -12,6 +12,7 @@ public class Color {
     }
 
     public String getColorNumber() {
+        //use this to get color from database!
         return colorNumber;
     }
 

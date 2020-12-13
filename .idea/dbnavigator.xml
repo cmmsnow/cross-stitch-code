@@ -25,7 +25,8 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="bbf37b41-66d8-4e47-a73f-4e71079198fd">
-        <schema name="zipcode" object-types="view, procedure, function, table" />
+        <schema name="DMCthread" object-types="view, procedure, function, constraint, column, table, index, dataset trigger" />
+        <schema name="mysql" object-types="table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -45,6 +46,9 @@
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/dmc_thread_sql/dmc_thread.sql" connection-id="bbf37b41-66d8-4e47-a73f-4e71079198fd" session-id="MAIN" current-schema="DMCthread" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />

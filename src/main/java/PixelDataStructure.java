@@ -1,7 +1,7 @@
 import java.lang.reflect.Array;
 
 /**
- * GOING TO REWRITE/NOT USE ARRAY. Will use hashset or something?
+ * GOING TO REWRITE/NOT USE ARRAY. Will use hashmap or something?
  *
  * constructor - eventually accepts photo source as param?
  */
