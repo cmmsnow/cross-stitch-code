@@ -50,7 +50,7 @@ public class Pattern {
         //adds value for every single square
     }
 
-    public Integer getAll(String colorNum){
+    public Integer getTotalOfColor(String colorNum){
         Integer numOfOccurencesOfColor = 0; //counter
         //create all the location keys
         for (int i=1; i<=numOfRows; i++){

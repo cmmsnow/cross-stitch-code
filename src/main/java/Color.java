@@ -1,6 +1,6 @@
 
 /**
- * IF i need this class - it is to access the colorName from database
+ * need this class to access the colorName from database?
  */
 
 public class Color {
