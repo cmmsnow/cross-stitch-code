@@ -1,6 +1,12 @@
+import org.junit.Before;
 import org.junit.Test;
 
 public class PatternTest {
+    //variables
+
+    @Before
+    public void setup(){}
+
     @Test
     public void constructorTest(){}
 
@@ -20,10 +26,16 @@ public class PatternTest {
     public void setNumOfColumnsTest(){}
 
     @Test
-    public void addSquareTest(){}
+    public void changeSquareTest(){}
 
     @Test
-    public void addAllTest(){}
+    public void createLocationKeysTest(){}
+
+    @Test
+    public void getElementAtITest(){}
+
+    @Test
+    public void addAllToMapTest(){}
 
     @Test
     public void getTotalOfColorTest(){}
