@@ -1,3 +1,6 @@
+create table Threads (ColorName VARCHAR(50) NOT NULL, Hexadecimal VARCHAR(50) NOT NULL, ColorFamily VARCHAR(50));
+insert into Threads (ColorName, Hexadecimal, ColorFamily) values ('DMC_33', '#9C599C', 'RED');
+insert into Threads (ColorName, Hexadecimal, ColorFamily) values ('DMC_34', '#7D3064', 'RED');
 insert into Threads (ColorName, Hexadecimal, ColorFamily) values ('DMC_221', '#883E43', 'RED');
 insert into Threads (ColorName, Hexadecimal, ColorFamily) values ('DMC_223', '#CC847C', 'RED');
 insert into Threads (ColorName, Hexadecimal, ColorFamily) values ('DMC_304', '#B71F33', 'RED');
