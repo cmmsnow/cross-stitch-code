@@ -1,7 +1,6 @@
+
 /**
- * stores pixel color value
- *
- * maybe this should actually be an Enum class with all DMC threads' color numbers?
+ * IF i need this class - it is to access the colorName from database
  */
 
 public class Color {
@@ -11,12 +10,16 @@ public class Color {
         this.colorNumber = colorNumber;
     }
 
-    public String getColorNumber() {
+    public String getColorNumFromDatabase() {
         //use this to get color from database!
-        return colorNumber;
+        return "";
     }
 
     public void setColorNumber(String colorNumber) {
         this.colorNumber = colorNumber;
+    }
+
+    public String getColorNumber() {
+        return colorNumber;
     }
 }
