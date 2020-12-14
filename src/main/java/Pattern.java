@@ -17,7 +17,7 @@ public class Pattern {
         this.numOfColumns = colorArray.getNumOfColumns();
         colorAr = colorArray.getColorArray();
         keyList = createLocationKeys(numOfRows, numOfColumns);
-        this.crossStitchData = addAllToMap(keyList, colorAr);
+        this.crossStitchData = addAllToMap();
     }
 
     public Map<String, String> getCrossStitchMap(){return crossStitchData;}
@@ -56,15 +56,18 @@ public class Pattern {
         return keys;
     }
 
-    public Optional<String> getElementAtI(Integer i){
-        return Optional.ofNullable(colorAr[i]);
+    public String getElementAtI(Integer i, String[] input){
+        return Optional.ofNullable(input[i]).orElse("[empty]");
+        //if (input[i])
     }
 
     //DID NOT TEST INDIVIDUALLY
-    public HashMap<String, String> addAllToMap(ArrayList<String> keys, String[] colors){
+    public HashMap<String, String> addAllToMap(){
         HashMap<String, String> thePattern = new HashMap<>();
-        for (int i=0; i<keys.size(); i++){
-            thePattern.put(keys.get(i), getElementAtI(i).orElse("[empty]"));
+        for (int i=0; i<this.keyList.size(); i++){
+            thePattern.put(this.keyList.get(i), getElementAtI(i, this.colorAr));
+            //thePattern.put(keys.get(i), colors[i]);
+            //thePattern.put(keys.get(i), getElementAtI(i).orElse("[empty]"));
         }
         return thePattern;
     }

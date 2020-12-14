@@ -77,11 +77,11 @@ public class PatternTest {
     @Test
     public void getElementAtITest(){
         String expected = "[empty]";
-        String actual = pattern.getElementAtI(1).orElse("[empty]");
+        String actual = pattern.getElementAtI(1, pattern.colorAr);
         Assert.assertEquals(expected, actual);
 
         String expected2 = "blue";
-        String actual2 = pattern.getElementAtI(0).orElse("[empty]");
+        String actual2 = pattern.getElementAtI(0, pattern.colorAr);
         Assert.assertEquals(expected2, actual2);
     }
 
