@@ -96,27 +96,35 @@ public class PatternTest {
     }
 
     @Test
-    public void changeAllTest(){
+    public void changeAllOfOneColorTest(){
+        //NOT PASSING
         String expected = "pink";
-        pattern.changeAll("blue", expected);
-        String actual = pattern.getElementAtI(0).orElse("[empty]");
+        pattern.changeAllOfOneColor("blue", expected);
+        String actual = pattern.getSquareColor(1,1);
         Assert.assertEquals(expected, actual);
 
-        pattern.changeAll("pink", "blue");
+        pattern.changeAllOfOneColor("pink", "blue");
     }
 
     @Test
-    public void getSquareColorTest(){
+    public void getSquareColorTest1(){
         String expected = "red";
         String actual = pattern.getSquareColor(2, 2);
         Assert.assertEquals(expected, actual);
     }
 
     @Test
+    public void getSquareColorTest2(){
+        String expected = "blue";
+        String actual = pattern.getSquareColor(1, 1);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void printMeTest(){
-        String expected = "|[empty]    |[empty]    |\n" +
-                "|blue       |red        |\n" +
-                "|blue       |blue       |";
+        String expected = "|   blue    |  [empty]  |\n" +
+                "|   blue    |    red    |\n" +
+                "|   blue    |  [empty]  |\n";
         String actual = pattern.printMe();
         Assert.assertEquals(expected, actual);
     }

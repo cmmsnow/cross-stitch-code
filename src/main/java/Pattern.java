@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * need this class to take a colorList and put it in hashmap with locationKey
+ * this class takes a colorList and puts it in pattern hashmap with locationKey
  */
 
 public class Pattern {
@@ -10,12 +10,14 @@ public class Pattern {
     private Integer numOfRows;
     private Integer numOfColumns;
     String[] colorAr;
+    ArrayList<String> keyList;
 
     public Pattern(ColorArray colorArray) {
         this.numOfRows = colorArray.getNumOfRows();
         this.numOfColumns = colorArray.getNumOfColumns();
         colorAr = colorArray.getColorArray();
-        this.crossStitchData = addAllToMap(createLocationKeys(numOfRows, numOfColumns), colorAr);
+        keyList = createLocationKeys(numOfRows, numOfColumns);
+        this.crossStitchData = addAllToMap(keyList, colorAr);
     }
 
     public Map<String, String> getCrossStitchMap(){return crossStitchData;}
@@ -42,23 +44,23 @@ public class Pattern {
         crossStitchData.put(locationKey, colorNum);
     }
 
-    //creates all the location keys
+    //DID NOT TEST INDIVIDUALLY
     public ArrayList<String> createLocationKeys(Integer howManyRows, Integer howManyColumns){
-        ArrayList<String> keyList = new ArrayList();
+        ArrayList<String> keys = new ArrayList<>();
         for (int i=1; i<=howManyRows; i++){
             for (int j=1; j<=howManyColumns; j++){
                 locationKey = "R" + i + "C" + j;
-                keyList.add(locationKey);
+                keys.add(locationKey);
             }
         }
-        return keyList;
+        return keys;
     }
 
     public Optional<String> getElementAtI(Integer i){
         return Optional.ofNullable(colorAr[i]);
     }
 
-    //creates hashmap and adds each key/value pair for whole pattern
+    //DID NOT TEST INDIVIDUALLY
     public HashMap<String, String> addAllToMap(ArrayList<String> keys, String[] colors){
         HashMap<String, String> thePattern = new HashMap<>();
         for (int i=0; i<keys.size(); i++){
@@ -67,7 +69,6 @@ public class Pattern {
         return thePattern;
     }
 
-    //returns number of keys with this colorValue
     public Integer getTotalOfColor(String colorName){
         Integer numOfOccurencesOfColor = 0;
         for (String k : crossStitchData.keySet()){
@@ -76,8 +77,7 @@ public class Pattern {
         return numOfOccurencesOfColor;
     }
 
-    //changes all values matching colorNum to newColorNum //NOT PASSING TEST
-    public void changeAll(String oldColor, String newColor){
+    public void changeAllOfOneColor(String oldColor, String newColor){
         for (String k : crossStitchData.keySet()){
             if (crossStitchData.get(k).equalsIgnoreCase(oldColor)){
                 crossStitchData.replace(k, newColor);
@@ -90,16 +90,20 @@ public class Pattern {
         return crossStitchData.get(locationKey);
     }
 
-    //NOT CENTERING COLOR WHEN PRINTING
+    public String centerString (int width, String s) {
+        return String.format("%-" + width  + "s", String.format("%" + (s.length() + (width - s.length()) / 2) + "s", s));
+    }
+
     public String printMe(){
         StringBuilder printer = new StringBuilder(); //append colorName(value) for every key, by row number.
         int counter = 0;
-        for (String k : crossStitchData.keySet()){
-            String formattedValue = String.format("|%1$-11s", crossStitchData.get(k)); //longest is currently 9, so give it | 11 spaces |
-            printer.append(formattedValue);
+        for (String k : keyList){
+            //System.out.println(k + " " + crossStitchData.get(k));
+            String formatted = centerString(11, crossStitchData.get(k)); //longest is currently 9, so give it 11 spaces
+            printer.append("|" + formatted);
             counter++;
             if (counter == numOfColumns){
-                printer.append("|\n"); //append line break at end of each row.
+                printer.append("|\n");
                 counter = 0;
             }
         }
