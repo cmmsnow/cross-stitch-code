@@ -8,9 +8,7 @@ import java.util.List;
 public class AllPatterns {
     private List<Pattern> allPatterns;
 
-    public AllPatterns(){
-        this.allPatterns = new ArrayList<>();
-    }
+    public AllPatterns(){ this.allPatterns = new ArrayList<>(); }
 
     public void addPattern(Pattern pattern){
         allPatterns.add(pattern);
@@ -18,6 +16,10 @@ public class AllPatterns {
 
     public List<Pattern> getPatterns(){
         return this.allPatterns;
+    }
+
+    public Integer getNumberOfPatterns(){
+        return allPatterns.size();
     }
 
     public static void main(String[] args){
