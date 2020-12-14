@@ -76,11 +76,11 @@ public class Pattern {
         return numOfOccurencesOfColor;
     }
 
-    //changes all values matching colorNum to newColorNum
-    public void changeAll(String colorNum, String newColorNum){
+    //changes all values matching colorNum to newColorNum //NOT PASSING TEST
+    public void changeAll(String oldColor, String newColor){
         for (String k : crossStitchData.keySet()){
-            if (crossStitchData.get(k).equalsIgnoreCase(colorNum)){
-                crossStitchData.put(k, newColorNum);
+            if (crossStitchData.get(k).equalsIgnoreCase(oldColor)){
+                crossStitchData.replace(k, newColor);
             }
         }
     }
@@ -90,6 +90,7 @@ public class Pattern {
         return crossStitchData.get(locationKey);
     }
 
+    //NOT CENTERING COLOR WHEN PRINTING
     public String printMe(){
         StringBuilder printer = new StringBuilder(); //append colorName(value) for every key, by row number.
         int counter = 0;
