@@ -56,7 +56,8 @@ public class AllPatterns {
         null, liteGreen, liteGreen, dark, liteGreen, liteGreen, liteGreen, dark, liteGreen, dark, liteGreen, dark, liteGreen, liteGreen, liteGreen, dark, liteGreen, dark, liteGreen, liteGreen, null,
         null, liteGreen, liteGreen, dark, dark, dark, liteGreen, dark, dark, dark, liteGreen, dark, dark, dark, liteGreen, dark, dark, dark, liteGreen, liteGreen, null,
         null, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, liteGreen, null,
-        null, null, dark, dark, null, null, null, null, null, null, null, null, null, null, null, null, null, dark, dark, null, null};
+                null, green, green, green, green, green, green, green, green, green, green, green, green, green, green, green, green, green, green, green, null,
+                null, null, dark, dark, null, null, null, null, null, null, null, null, null, null, null, null, null, dark, dark, null, null};
 
         ColorArray colorArrayDumpster = new ColorArray(25, 21);
         colorArrayDumpster.setColorArray(colors);

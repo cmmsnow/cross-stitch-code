@@ -58,16 +58,21 @@ public class Pattern {
 
     public String getElementAtI(Integer i, String[] input){
         return Optional.ofNullable(input[i]).orElse("[empty]");
-        //if (input[i])
+//        if (input[i] != null){
+//            System.out.println(input[i]);
+//            return input[i];
+//        } else {
+//            return "[empty]";
+//        }
     }
 
     //DID NOT TEST INDIVIDUALLY
     public HashMap<String, String> addAllToMap(){
         HashMap<String, String> thePattern = new HashMap<>();
         for (int i=0; i<this.keyList.size(); i++){
+            //System.out.println(this.keyList.size() + " " + this.colorAr.length);
             thePattern.put(this.keyList.get(i), getElementAtI(i, this.colorAr));
-            //thePattern.put(keys.get(i), colors[i]);
-            //thePattern.put(keys.get(i), getElementAtI(i).orElse("[empty]"));
+            //System.out.println(this.keyList.get(i) + " " + getElementAtI(i, this.colorAr));
         }
         return thePattern;
     }
@@ -98,16 +103,17 @@ public class Pattern {
     }
 
     public String printMe(){
-        StringBuilder printer = new StringBuilder(); //append colorName(value) for every key, by row number.
+        StringBuilder printer = new StringBuilder();
         int counter = 0;
         for (String k : keyList){
-            //System.out.println(k + " " + crossStitchData.get(k));
-            String formatted = centerString(11, crossStitchData.get(k)); //longest is currently 9, so give it 11 spaces
+            String formatted = centerString(9, crossStitchData.get(k));
             printer.append("|" + formatted);
             counter++;
             if (counter == numOfColumns){
                 printer.append("|\n");
+                System.out.println(printer.toString());
                 counter = 0;
+                printer.setLength(0);
             }
         }
         return printer.toString();
