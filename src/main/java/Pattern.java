@@ -44,7 +44,7 @@ public class Pattern {
         crossStitchData.put(locationKey, colorNum);
     }
 
-    //DID NOT TEST INDIVIDUALLY
+    //did not test this one individually, but gets used in constructor test
     public ArrayList<String> createLocationKeys(Integer howManyRows, Integer howManyColumns){
         ArrayList<String> keys = new ArrayList<>();
         for (int i=1; i<=howManyRows; i++){
@@ -58,21 +58,13 @@ public class Pattern {
 
     public String getElementAtI(Integer i, String[] input){
         return Optional.ofNullable(input[i]).orElse("[empty]");
-//        if (input[i] != null){
-//            System.out.println(input[i]);
-//            return input[i];
-//        } else {
-//            return "[empty]";
-//        }
     }
 
-    //DID NOT TEST INDIVIDUALLY
+    //did not test this one individually, but gets used in constructor test
     public HashMap<String, String> addAllToMap(){
         HashMap<String, String> thePattern = new HashMap<>();
         for (int i=0; i<this.keyList.size(); i++){
-            //System.out.println(this.keyList.size() + " " + this.colorAr.length);
             thePattern.put(this.keyList.get(i), getElementAtI(i, this.colorAr));
-            //System.out.println(this.keyList.get(i) + " " + getElementAtI(i, this.colorAr));
         }
         return thePattern;
     }

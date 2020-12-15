@@ -3,6 +3,8 @@ import java.util.List;
 
 /**
  * holds all pattern hashmaps
+ *
+ * currently prints pattern when run
  */
 
 public class AllPatterns {
